@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import os
 from werkzeug.utils import secure_filename
 import predict
+import food
 
 
 app = Flask(__name__)
@@ -26,12 +27,14 @@ def upload():
         f.save(file_path)
 
         result = predict.predict_image(file_path)
-
+        
+        data = food.search(result)
 
         os.remove(file_path)
 
 
-        return jsonify({'result': result}), 200
+        return jsonify({'result': result,
+                        'data' : data}), 200
 
     # Trả về phản hồi nếu không phải là phương thức POST
     return jsonify({'error': 'Method not allowed'}), 405
