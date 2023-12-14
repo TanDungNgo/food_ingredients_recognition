@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import os
 from werkzeug.utils import secure_filename
+import predict
 
 
 app = Flask(__name__)
@@ -24,11 +25,13 @@ def upload():
         file_path = secure_filename(f.filename)
         f.save(file_path)
 
+        result = predict.predict_image(file_path)
+
 
         os.remove(file_path)
 
 
-        return jsonify({'message': 'File uploaded successfully'}), 200
+        return jsonify({'result': result}), 200
 
     # Trả về phản hồi nếu không phải là phương thức POST
     return jsonify({'error': 'Method not allowed'}), 405
