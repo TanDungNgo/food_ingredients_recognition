@@ -43,9 +43,10 @@ $(document).ready(function () {
             processData: false,
             async: true,
             success: function (data) {
+                console.log("Data: ", data);
                 $('.loader').hide();
                 $('#result').fadeIn(600);
-                // $('#result').text(' Result:  ' + data);
+                $('#result').text(' Result:  ' + data.result);
                 console.log('Success!');
             },
             error: function (xhr, status, error) {
