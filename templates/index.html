@@ -1,30 +1,49 @@
 {% extends "base.html" %} {% block content %}
 
-<div>
-    <form id="upload-file" method="post" enctype="multipart/form-data" class="uploader">
-        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
-        <label for="imageUpload" id="file-drag">
-            <div class="image-section" style="display:none;">
-                <div class="img-preview">
-                    <div id="imagePreview"></div>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-primary btn-lg" id="btn-predict">Predict Food</button>
-                </div>
-                <div class="loader" style="display:none;"></div>
-            </div>
-            <div id="start">
-                <i class="fa fa-download" aria-hidden="true"></i>
-                <div>Select a file or drag here</div>
-                <div id="notimage" class="hidden">Please select an image</div>
-                <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
-            </div>
-        </label>
-    </form>
-    
-    <h3 id="result">
-        <span> </span>
-    </h3>
+<div style="display: flex; flex-direction: column">
+  <form
+    id="upload-file"
+    method="post"
+    enctype="multipart/form-data"
+    class="uploader"
+  >
+    <input
+      type="file"
+      name="file"
+      id="imageUpload"
+      accept=".png, .jpg, .jpeg"
+    />
+    <label for="imageUpload" id="file-drag">
+      <div class="image-section" style="display: none">
+        <div class="img-preview">
+          <div id="imagePreview"></div>
+        </div>
+        <div>
+          <button type="button" class="btn btn-primary btn-lg" id="btn-predict">
+            Predict Food
+          </button>
+        </div>
+        <div class="loader" style="display: none"></div>
+      </div>
+      <div id="start">
+        <i class="fa fa-download" aria-hidden="true"></i>
+        <div>Select a file or drag here</div>
+        <div id="notimage" class="hidden">Please select an image</div>
+        <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+      </div>
+    </label>
+  </form>
+
+  <h3 id="result">
+    <span> </span>
+  </h3>
+
+  <div
+    id="dataDisplay"
+    style="flex-wrap: wrap; display: flex; justify-content: space-between"
+  ></div>
+
+  <div id="resultDisplay"></div>
 </div>
 
 {% endblock %}

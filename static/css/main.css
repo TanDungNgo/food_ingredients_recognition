@@ -214,3 +214,42 @@ p {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+.recipe-container {
+   width: 40%;
+   height: 100%;
+}
+.recipe-container img {
+    max-width: 100%;
+    height: 80%;
+    width: 50%;
+    border-radius: 5px;   
+ }
+
+ .recipe-container-detail {
+  width: 100%;
+  height: 100%;
+}
+
+.navbar {
+  background-image: url("https://cdn.pixabay.com/photo/2022/04/30/19/12/cooking-banner-7166200_1280.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  /* CSS cho div header */
+  background-color: lightblue;
+  padding: 20px;
+  text-align: center;
+  border-radius: 50%; /* Bo tròn div header */
+  width: 300px; /* Chiều rộng cố định của div header */
+  height: 300px; /* Chiều cao cố định của div header */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
