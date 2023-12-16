@@ -15,16 +15,23 @@
       href="{{ url_for('static', filename='css/main.css') }}"
       rel="stylesheet"
     />
+
+    <style>
+      .navbar {
+      }
+    </style>
   </head>
 
   <body>
-    <nav class="navbar navbar-dark bg-dark" style="display: flex; justify-content: center;">
-        <h2>
-            🍞 🥐🥖 🫓 🥨 🥯 🥞 🧇 🧀 🍖 🍗 🥩 🥓 🍔 🍟 🍕 🌭 🥪 🌮
-            🌯 🫔 🥙 🧆 🥚 🍳 🥘 🍲 🫕 🥣 🥗 🍿 🧈 🧂 🥫 🍝
-        </h2>
-    </nav>
-    <div class="container">
+    <div class="navbar">
+      <div class="icons-container">
+        <div class="header">
+          <h1>Discover Your Daily Meal</h1>
+          <h3>Choose Today's Meal Together!</h3>
+        </div>
+      </div>
+    </div>
+    <div class="">
       <div id="content" style="margin-top: 2em">
         {% block content %}{% endblock %}
       </div>

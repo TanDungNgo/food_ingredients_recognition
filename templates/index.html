@@ -1,30 +1,119 @@
 {% extends "base.html" %} {% block content %}
 
-<div>
-    <form id="upload-file" method="post" enctype="multipart/form-data" class="uploader">
-        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
-        <label for="imageUpload" id="file-drag">
-            <div class="image-section" style="display:none;">
-                <div class="img-preview">
-                    <div id="imagePreview"></div>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-primary btn-lg" id="btn-predict">Predict Food</button>
-                </div>
-                <div class="loader" style="display:none;"></div>
+<div style="display: flex; flex-direction: column">
+  <div class="icons-wrapper" style="margin: 10px;">
+
+
+    <div class="icon-top">
+      <h2>🍞</h2>
+      <h2>🥐</h2>
+      <h2>🥖</h2>
+      <h2>🫓</h2>
+      <h2>🥨</h2>
+      <h2>🥯</h2>
+      <h2>🥞</h2>
+      <h2>🧇</h2>
+      <h2>🧀</h2>
+      <h2>🍖</h2>
+    </div>
+    <div style="    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;">
+      <div class="icon-left">
+        <h2>🍟</h2>
+        <h2>🍕</h2>
+        <h2>🌭</h2>
+        <h2>🥪</h2>
+        <h2>🍳</h2>
+        <h2>🧆</h2>
+        <h2>🥚</h2>
+        <h2>🥩</h2>
+      </div>
+      <form
+        id="upload-file"
+        method="post"
+        enctype="multipart/form-data"
+        class="uploader"
+      >
+        <input
+          type="file"
+          name="file"
+          id="imageUpload"
+          accept=".png, .jpg, .jpeg"
+        />
+        <label for="imageUpload" id="file-drag" style=""> 
+          <div class="image-section" style="display: none">
+            <div class="img-preview">
+              <div id="imagePreview" >
+
+              </div>
             </div>
-            <div id="start">
-                <i class="fa fa-download" aria-hidden="true"></i>
-                <div>Select a file or drag here</div>
-                <div id="notimage" class="hidden">Please select an image</div>
-                <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+            <div>
+              <button
+                type="button"
+                class="btn btn-primary btn-lg"
+                id="btn-predict"
+              >
+                Predict Food
+              </button>
             </div>
+            <div class="loader" style="display: none"></div>
+          </div>
+          <div id="start">
+            <i class="fa fa-download" aria-hidden="true"></i>
+            <div>Select a file or drag here</div>
+            <div id="notimage" class="hidden">Please select an image</div>
+            <span id="file-upload-btn" class="btn btn-primary"
+              >Select a file</span
+            >
+          </div>
         </label>
-    </form>
-    
-    <h3 id="result">
-        <span> </span>
+      </form>
+      <div class="icon-right"> 
+        <h2>🍗</h2>
+        <h2>🌮</h2>
+        <h2>🌯</h2>
+        <h2>🫔</h2>
+        <h2>🥙</h2>
+        <h2>🥓</h2>
+        <h2>🍔</h2>
+        <h2>🍙</h2>
+      </div>
+    </div>
+    <div class="icon-bottom">
+      <h2>🍞</h2>
+      <h2>🥘</h2>
+      <h2>🍲</h2>
+      <h2>🫕</h2>
+      <h2>🥣</h2>
+      <h2>🥗</h2>
+      <h2>🍿</h2>
+      <h2>🧈</h2>
+      <h2>🧂</h2>
+      <h2>🥫</h2>
+      <h2>🍝</h2>
+    </div>
+  </div>
+
+    <h3 id="result" >
+      <span> </span>
     </h3>
+
+    <div
+      id="dataDisplay"
+      style="flex-wrap: wrap; display: flex; justify-content: space-between"
+    ></div>
+
+    <div id="resultDisplay"></div>
+  </div>
+
+  {% endblock %}
 </div>
 
-{% endblock %}
+<h2 class="icons">
+  🍞 🥐 🥖 🫓 🥨 🥯 🥞 🧇 🧀 🍖 
+  🍗 🌮 🌯 🫔 🥙 🧆 🥚 🥩 🥓 🍔 
+  🍟 🍕 🌭 🥪 🍳
+  🥘 🍲 🫕 🥣 🥗 🍿 🧈 🧂 🥫 🍝
+</h2>
