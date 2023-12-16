@@ -75,6 +75,8 @@ $(document).ready(function () {
                 $('.loader').hide();
                 $('#result').fadeIn(600);
                 $('#result').text(' Result:  ' + data.result);
+                $('#dataDisplay').show();
+
 
 
                 var dataDisplay = document.getElementById('dataDisplay');

@@ -22,7 +22,7 @@ h2 {
   font-family: "Roboto", sans-serif;
   font-size: 26px;
   line-height: 1;
-  color: #454cad;
+  color: #00ff40;
   margin-bottom: 0;
 }
 
@@ -35,7 +35,7 @@ p {
 .uploader {
   display: block;
   clear: both;
-  margin: 0 auto;
+  margin: 0;
   width: 100%;
   max-width: 600px;
 }
@@ -55,10 +55,10 @@ p {
   user-select: none;
 }
 .uploader label:hover {
-  border-color: #454cad;
+  border-color: #00ff40;
 }
 .uploader label.hover {
-  border: 3px solid #454cad;
+  border: 3px solid #00ff40;
   box-shadow: inset 0 0 0 6px #eee;
 }
 .uploader label.hover #start i.fa {
@@ -158,8 +158,8 @@ p {
   color: #fff;
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
-  background: #454cad;
-  border-color: #454cad;
+  background: #00ff40;
+  border-color: #00ff40;
   cursor: pointer;
 }
 
@@ -169,9 +169,10 @@ p {
     align-items: center;
 }
 .img-preview {
-    width: 256px;
-    height: 256px;
+    width: 250px;
+    height: 250px ;
     position: relative;
+    border-radius: 50%;
     border: 5px solid #F8F8F8;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
     margin-top: 1em;
@@ -181,6 +182,7 @@ p {
 .img-preview>div {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     background-size: 256px 256px;
     background-repeat: no-repeat;
     background-position: center;
@@ -216,14 +218,17 @@ p {
 }
 
 .recipe-container {
-   width: 40%;
-   height: 100%;
+  width: 20%;
+  height: 100%;
 }
 .recipe-container img {
     max-width: 100%;
-    height: 80%;
-    width: 50%;
+    /* height: 80%;
+    width: 50%; */
     border-radius: 5px;   
+    width: 192px;
+    height: 192px;
+
  }
 
  .recipe-container-detail {
@@ -253,3 +258,59 @@ p {
   justify-content: center;
   align-items: center;
 }
+
+.icon-top,
+.icon-bottom {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.icon-left {
+  display: flex;
+  flex-direction: column;
+  height: 360;
+  justify-content: space-between;
+}
+
+.icon-right {
+  display: flex;
+  flex-direction: column;
+  height: 360;
+  justify-content: space-between;
+}
+#file-drag{
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#result{
+  margin: 20px;
+}
+ 
+
+
+ /* .icons{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+} 
+
+.icons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+
+
+
+
+
+

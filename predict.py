@@ -10,9 +10,9 @@ model = load_model(path_to_model)
 print("Done!")
 
 category={
-    0: ['apple','Apple'], 1: ['banana','Banana'], 2: ['bread','Bread'],
-    3: ['chicken','Chicken'], 4: ['crab','Crab'], 5: ['egg','Egg'], 6: ['milk','Milk'], 7: ['pomato','Pomato'],
-    8: ['tofu', 'Tofu'], 9: ['tomato', 'Tomato']
+    0: ['apple','Apple'], 1: ['banana','Banana'], 2: ['bread','Bread'], 3: ['carrot', 'Carrot'],
+    4: ['chicken','Chicken'], 5: ['crab','Crab'], 6: ['egg','Egg'], 7: ['milk','Milk'], 8: ['potato','Potato'], 9: ['shrimp', 'Shrimp'],
+    10: ['tofu', 'Tofu'], 11: ['tomato', 'Tomato'],
 }
 
 def predict_image(filename,model = model):
