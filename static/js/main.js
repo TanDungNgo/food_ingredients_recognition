@@ -178,13 +178,12 @@ $(document).ready(function () {
             
                 <div class="ingredients-container">
                     <p>Nguyên liệu:</p>
-                    ${recipeInfo.extendedIngredients.map(ingredient => `<p>- ${ingredient.original}</p>` +
-                    (ingredient.meta ? ingredient.meta.map(meta => `<p>  +) ${meta}</p>`).join('') : '')).join('')}
+                    ${recipeInfo.extendedIngredients.map(ingredient => `<p>- ${ingredient.original}</p>`).join('')}
                 </div>
             
                 <div class="instructions-container">
                     <p>Cách làm:</p>
-                    ${recipeInfo.analyzedInstructions[0].steps.map(step => `<p>${step.number}. ${step.step}</p>`).join('')}
+                    ${recipeInfo.analyzedInstructions[0].steps.map(step => `<p>- Bước ${step.number}: ${step.step}</p>`).join('')}
                 </div>
             </div>
     
