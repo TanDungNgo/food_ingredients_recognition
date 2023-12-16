@@ -39,6 +39,15 @@ def upload():
     # Trả về phản hồi nếu không phải là phương thức POST
     return jsonify({'error': 'Method not allowed'}), 405
 
+@app.route('/process_food/<string:id_>', methods=['GET'])
+def process_food(id_):
+    if request.method == 'GET':
+        data = food.get_recipe_information(id_)
+        data1 = food.print_recipe_information(data)
+        return jsonify({'data' : data, 'data1' : data1}), 200
+
+    # Trả về phản hồi nếu không phải là phương thức POST
+    return jsonify({'error': 'Method not allowed'}), 405
 
 if __name__ == '__main__':
     app.run()
