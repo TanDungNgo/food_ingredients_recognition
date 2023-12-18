@@ -233,16 +233,16 @@ $(document).ready(function () {
                     </div>
 
                     <div class="recipe-container-container">
-                        <h2>Servings 🍴: ${recipeInfo.servings} người </h2>
+                        <h2>Servings 🍴: ${recipeInfo.servings} people </h2>
                     </div>
 
                     <div class="recipe-container-container">
-                        <h2>Cooking time ⌛️: ${recipeInfo.readyInMinutes} phút</h2>
+                        <h2>Cooking time ⌛️: ${recipeInfo.readyInMinutes} minture</h2>
                     </div>
 
                     <div class="recipe-container-container">
                         <h2>Recipe link  🔪: 
-                            <a href="${recipeInfo.spoonacularSourceUrl}" target="_blank">${recipeInfo.spoonacularSourceUrl}</a>
+                            <a style="font-size: 22px;" href="${recipeInfo.spoonacularSourceUrl}" target="_blank">${recipeInfo.spoonacularSourceUrl}</a>
                         </h2>
                     </div>
                 
@@ -255,7 +255,7 @@ $(document).ready(function () {
                     <div class="recipe-container-container">
                         <h2>Instructions 😎:</h2>
                         <div class="summary-text" style="text-align: start;">
-                            ${recipeInfo.analyzedInstructions[0].steps.map(step => `<p>- Bước ${step.number}: ${step.step}</p>`).join('')}
+                            ${recipeInfo.analyzedInstructions[0].steps.map(step => `<p>- Step ${step.number}: ${step.step}</p>`).join('')}
                         </div>
                     </div>
                 </div>
