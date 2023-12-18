@@ -103,7 +103,7 @@ $(document).ready(function () {
                         ${recipeInfo.analyzedInstructions[0].steps.map((step, index) => `
                             <div class="d-flex mb-1">
                                 <div class="d-flex flex-column pr-4 align-items-center">
-                                    <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">${index}</div>
+                                    <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">${index+1}</div>
                                     <div class="line h-100"></div>
                                 </div>
                                 <div>
