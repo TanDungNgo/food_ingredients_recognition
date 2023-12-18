@@ -162,6 +162,9 @@ p {
   border-color: #00ff40;
   cursor: pointer;
 }
+.btn :hover{
+  color: #00ff40;
+}
 
 .image-section{
     display: flex;
@@ -254,6 +257,22 @@ p {
 .recipe-container-container h2{
   color: black;
   margin-block-end: 10px;
+}
+
+.recipe-container-container p{
+  font-size: 22px;
+}
+
+.summary-text{
+  text-align: start;
+  font-size: 22px;
+}
+.summary-text a{
+  font-size: 22px;
+}
+
+.summary-text b{
+  font-size: 22px;
 }
 
 .navbar {

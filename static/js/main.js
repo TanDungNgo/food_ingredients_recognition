@@ -209,7 +209,7 @@ $(document).ready(function () {
                     <div class="recipe-container-container">
                         <h2>Tóm tắt món ăn 🧑‍🍳: </h2>
 
-                        <div style="text-align: start;">
+                        <div class="summary-text" style="text-align: start;">
                             ${recipeInfo.summary}
                         </div>
                     </div>
@@ -240,8 +240,9 @@ $(document).ready(function () {
                     </div>
 
                     <div class="recipe-container-container">
-                        <h2>Nguồn link hướng dẫn 🔪: </h2>
-                        <a href="${recipeInfo.spoonacularSourceUrl}" target="_blank">${recipeInfo.spoonacularSourceUrl}</a>
+                        <h2>Nguồn link hướng dẫn 🔪: 
+                            <a href="${recipeInfo.spoonacularSourceUrl}" target="_blank">${recipeInfo.spoonacularSourceUrl}</a>
+                        </h2>
                     </div>
                 
                 
@@ -252,7 +253,9 @@ $(document).ready(function () {
                 
                     <div class="recipe-container-container">
                         <h2>Cách làm 😎:</h2>
-                        ${recipeInfo.analyzedInstructions[0].steps.map(step => `<p>- Bước ${step.number}: ${step.step}</p>`).join('')}
+                        <div class="summary-text" style="text-align: start;">
+                            ${recipeInfo.analyzedInstructions[0].steps.map(step => `<p>- Bước ${step.number}: ${step.step}</p>`).join('')}
+                        </div>
                     </div>
                 </div>
             </div>
