@@ -91,10 +91,11 @@ $(document).ready(function () {
                         </h2>
                     </div>
                 
-                
-                    <div class="recipe-container-container">
+                    <div class="recipe-container-container post-it">
                         <h2>Ingredients 📃:</h2>
-                        ${recipeInfo.extendedIngredients.map(ingredient => `<p>- ${ingredient.original}</p>`).join('')}
+                        <ul>
+                            ${recipeInfo.extendedIngredients.map(ingredient => `<li>${ingredient.original}</li>`).join('')}
+                        </ul>
                     </div>
                 
                     <div class="recipe-container-container">
