@@ -199,15 +199,16 @@ $(document).ready(function () {
         return `
             <div class="recipe-container-detailed">
                 <div class="recipe-container-header">
-                    <h1><b style="color: black,font-size: 30px;">Tên món ăn: ${recipeInfo.title}</b></h1>
+                    <h1 style=" margin: 10px;"> 
+                    Dish Name : ${recipeInfo.title} <b style="color: black,font-size: 30px;"></b></h1>
                     <img src="${recipeInfo.image}" alt="${recipeInfo.title}">
-                    <p>Nguồn: ${recipeInfo.creditsText}</p>
+                    <p>Source: ${recipeInfo.creditsText}</p>
 
                 </div>
                 
                 <div class="recipe-container-body">
                     <div class="recipe-container-container">
-                        <h2>Tóm tắt món ăn 🧑‍🍳: </h2>
+                        <h2>Summary of the dish 🧑‍🍳: </h2>
 
                         <div class="summary-text" style="text-align: start;">
                             ${recipeInfo.summary}
@@ -215,44 +216,44 @@ $(document).ready(function () {
                     </div>
                    
                     <div class="recipe-container-container">
-                        <h2>Ẩm thực 🌍:</h2>
+                        <h2>Cuisine 🌍:</h2>
                         ${recipeInfo.cuisines && recipeInfo.cuisines.length > 0 ?
                             recipeInfo.cuisines.map(cuisine => `<p>- ${cuisine}</p>`).join('') :
                             ''}
                     </div>
                 
                     <div class="recipe-container-container">
-                        <h2>Sử dụng làm:</h2>
+                        <h2>Utilized for :</h2>
                         ${recipeInfo.dishTypes.map(dishType => `<p>- ${dishType}</p>`).join('')}
                     </div>
                 
                     <div class="recipe-container-container">
-                        <h2>Chế độ ăn kiêng 🍽:</h2>
+                        <h2>Dietary preferences 🍽:</h2>
                         ${recipeInfo.diets.map(diet => `<p>- ${diet}</p>`).join('')}
                     </div>
 
                     <div class="recipe-container-container">
-                        <h2>Khẩu phần ăn🍴: ${recipeInfo.servings} người </h2>
+                        <h2>Servings 🍴: ${recipeInfo.servings} người </h2>
                     </div>
 
                     <div class="recipe-container-container">
-                        <h2>Thời gian nấu ⌛️: ${recipeInfo.readyInMinutes} phút</h2>
+                        <h2>Cooking time ⌛️: ${recipeInfo.readyInMinutes} phút</h2>
                     </div>
 
                     <div class="recipe-container-container">
-                        <h2>Nguồn link hướng dẫn 🔪: 
+                        <h2>Recipe link  🔪: 
                             <a href="${recipeInfo.spoonacularSourceUrl}" target="_blank">${recipeInfo.spoonacularSourceUrl}</a>
                         </h2>
                     </div>
                 
                 
                     <div class="recipe-container-container">
-                        <h2>Nguyên liệu 📃:</h2>
+                        <h2>Ingredients 📃:</h2>
                         ${recipeInfo.extendedIngredients.map(ingredient => `<p>- ${ingredient.original}</p>`).join('')}
                     </div>
                 
                     <div class="recipe-container-container">
-                        <h2>Cách làm 😎:</h2>
+                        <h2>Instructions 😎:</h2>
                         <div class="summary-text" style="text-align: start;">
                             ${recipeInfo.analyzedInstructions[0].steps.map(step => `<p>- Bước ${step.number}: ${step.step}</p>`).join('')}
                         </div>
