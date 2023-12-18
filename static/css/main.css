@@ -32,6 +32,38 @@ p {
   color: #5f6982;
 }
 
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-top {
+  margin: 10px;
+}
+
+.icon-top,
+.icon-bottom {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.icon-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-middle__left,
+.icon-middle__right {
+  display: flex;
+  flex-direction: column;
+  height: 360;
+  justify-content: space-between;
+}
+
 .uploader {
   display: block;
   clear: both;
@@ -39,6 +71,7 @@ p {
   width: 100%;
   max-width: 600px;
 }
+
 .uploader label {
   float: left;
   clear: both;
@@ -54,41 +87,51 @@ p {
   -ms-user-select: none;
   user-select: none;
 }
+
 .uploader label:hover {
-  border-color: #00ff40;
+  border-color: #3ba81a;
 }
+
 .uploader label.hover {
-  border: 3px solid #00ff40;
+  border: 3px solid #3ba81a;
   box-shadow: inset 0 0 0 6px #eee;
 }
+
 .uploader label.hover #start i.fa {
   transform: scale(0.8);
   opacity: 0.3;
 }
+
 .uploader #start {
   float: left;
   clear: both;
   width: 100%;
 }
+
 .uploader #start.hidden {
   display: none;
 }
+
 .uploader #start i.fa {
   font-size: 50px;
   margin-bottom: 1rem;
   transition: all 0.2s ease-in-out;
 }
+
 .uploader #response {
   float: left;
   clear: both;
   width: 100%;
 }
+
 .uploader #response.hidden {
   display: none;
 }
+
 .uploader #response #messages {
   margin-bottom: 0.5rem;
 }
+
 .uploader #file-image {
   display: inline;
   margin: 0 auto 0.5rem auto;
@@ -96,18 +139,22 @@ p {
   height: auto;
   max-width: 180px;
 }
+
 .uploader #file-image.hidden {
   display: none;
 }
+
 .uploader #notimage {
   display: block;
   float: left;
   clear: both;
   width: 100%;
 }
+
 .uploader #notimage.hidden {
   display: none;
 }
+
 .uploader progress,
 .uploader .progress {
   display: inline;
@@ -121,25 +168,31 @@ p {
   background-color: #eee;
   overflow: hidden;
 }
+
 .uploader .progress[value]::-webkit-progress-bar {
   border-radius: 4px;
   background-color: #eee;
 }
+
 .uploader .progress[value]::-webkit-progress-value {
   background: linear-gradient(to right, #393f90 0%, #454cad 50%);
   border-radius: 4px;
 }
+
 .uploader .progress[value]::-moz-progress-bar {
   background: linear-gradient(to right, #393f90 0%, #454cad 50%);
   border-radius: 4px;
 }
+
 .uploader input[type="file"] {
   display: none;
 }
+
 .uploader div {
   margin: 0 0 0.5rem 0;
   color: #5f6982;
 }
+
 .uploader .btn {
   display: inline-block;
   margin: 0.5rem 0.5rem 1rem 0.5rem;
@@ -158,88 +211,130 @@ p {
   color: #fff;
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
-  background: #00ff40;
-  border-color: #00ff40;
+  background: #3ba81a;
+  border-color: #3ba81a;
   cursor: pointer;
 }
-.btn :hover{
-  color: #00ff40;
+
+.btn:hover {
+  opacity: 0.8;
+  color: #fff;
+  height: 36px;
+  line-height: 36px;
 }
 
-.image-section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.image-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 .img-preview {
-    width: 250px;
-    height: 250px ;
-    position: relative;
-    border-radius: 50%;
-    border: 5px solid #F8F8F8;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-    margin-top: 1em;
-    margin-bottom: 1em;
+  width: 250px;
+  height: 250px;
+  position: relative;
+  border-radius: 50%;
+  border: 5px solid #F8F8F8;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .img-preview>div {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-size: 256px 256px;
-    background-repeat: no-repeat;
-    background-position: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-size: 256px 256px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.upload-label{
-    display: inline-block;
-    padding: 12px 30px;
-    background: #39D2B4;
-    color: #fff;
-    font-size: 1em;
-    transition: all .4s;
-    cursor: pointer;
+.upload-label {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #39D2B4;
+  color: #fff;
+  font-size: 1em;
+  transition: all .4s;
+  cursor: pointer;
 }
 
-.upload-label:hover{
-    background: #34495E;
-    color: #39D2B4;
-} 
+.upload-label:hover {
+  background: #34495E;
+  color: #39D2B4;
+}
 
 .loader {
-    border: 8px solid #f3f3f3; 
-    border-top: 8px solid #3498db; 
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#dataDisplay {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1.2em;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .recipe-container {
-  width: 20%;
-  height: 100%;
+  flex-basis: calc(18%);
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 16px 14px;
+  background: #fff;
+  transition: 0.4s;
 }
+
+.recipe-container:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  transform: translateY(-6px);
+}
+
 .recipe-container img {
-    max-width: 100%;
-    /* height: 80%;
-    width: 50%; */
-    border-radius: 5px;   
-    width: 192px;
-    height: 192px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
 
- }
+.recipe-container img:hover  {
+  cursor: pointer;
+}
 
- .recipe-container-detail {
+.recipe-container p {
+  margin-bottom: 8px;
+}
+
+/* .box-items {
+
+}
+
+.box-items:hover {
+
+} */
+
+.recipe-container-detail {
   width: 100%;
   height: 100%;
 }
 
-.recipe-container-body{
+.recipe-container-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -247,31 +342,32 @@ p {
   align-items: flex-start;
 }
 
-.recipe-container-container{
+.recipe-container-container {
   display: flex;
   align-items: flex-start;
-  margin: 15px; 
+  margin: 15px;
   flex-direction: column;
 }
 
-.recipe-container-container h2{
+.recipe-container-container h2 {
   color: black;
   margin-block-end: 10px;
 }
 
-.recipe-container-container p{
+.recipe-container-container p {
   font-size: 22px;
 }
 
-.summary-text{
+.summary-text {
   text-align: start;
   font-size: 22px;
 }
-.summary-text a{
+
+.summary-text a {
   font-size: 22px;
 }
 
-.summary-text b{
+.summary-text b {
   font-size: 22px;
 }
 
@@ -289,70 +385,25 @@ p {
   background-color: lightblue;
   padding: 20px;
   text-align: center;
-  border-radius: 50%; /* Bo tròn div header */
-  width: 300px; /* Chiều rộng cố định của div header */
-  height: 300px; /* Chiều cao cố định của div header */
+  border-radius: 50%;
+  /* Bo tròn div header */
+  width: 300px;
+  /* Chiều rộng cố định của div header */
+  height: 300px;
+  /* Chiều cao cố định của div header */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.icon-top,
-.icon-bottom {
-  width: 600px;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-}
-
-.icon-left {
-  display: flex;
-  flex-direction: column;
-  height: 360;
-  justify-content: space-between;
-}
-
-.icon-right {
-  display: flex;
-  flex-direction: column;
-  height: 360;
-  justify-content: space-between;
-}
-#file-drag{
+#file-drag {
   height: 360px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#result{
+
+#result {
   margin: 20px;
 }
-.container{
-  display: flex;
-}
- 
-
-
- /* .icons{
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 600px;
-} 
-
-.icons-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-
-
-
-
-
-

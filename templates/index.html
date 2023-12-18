@@ -1,9 +1,7 @@
 {% extends "base.html" %} {% block content %}
 
-<div style="display: flex; flex-direction: column">
-  <div class="icons-wrapper" style="margin: 10px;">
-
-
+<div class="container">
+  <div class="container-top">
     <div class="icon-top">
       <h2>🍞</h2>
       <h2>🥐</h2>
@@ -16,11 +14,8 @@
       <h2>🧀</h2>
       <h2>🍖</h2>
     </div>
-    <div style="    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;">
-      <div class="icon-left">
+    <div class="icon-middle">
+      <div class="icon-middle__left">
         <h2>🍟</h2>
         <h2>🍕</h2>
         <h2>🌭</h2>
@@ -30,18 +25,8 @@
         <h2>🥚</h2>
         <h2>🥩</h2>
       </div>
-      <form
-        id="upload-file"
-        method="post"
-        enctype="multipart/form-data"
-        class="uploader"
-      >
-        <input
-          type="file"
-          name="file"
-          id="imageUpload"
-          accept=".png, .jpg, .jpeg"
-        />
+      <form id="upload-file" class="uploader" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg" />
         <label for="imageUpload" id="file-drag" style=""> 
           <div class="image-section" style="display: none">
             <div class="img-preview">
@@ -50,11 +35,7 @@
               </div>
             </div>
             <div>
-              <button
-                type="button"
-                class="btn"
-                id="btn-predict"
-              >
+              <button type="button" class="btn" id="btn-predict">
                 Predict Food
               </button>
             </div>
@@ -64,13 +45,13 @@
             <i class="fa fa-download" aria-hidden="true"></i>
             <div>Select a file or drag here</div>
             <div id="notimage" class="hidden">Please select an image</div>
-            <span id="file-upload-btn" class="btn"
-              >Select a file</span
-            >
+            <span id="file-upload-btn" class="btn">
+              Select a file
+            </span>
           </div>
         </label>
       </form>
-      <div class="icon-right"> 
+      <div class="icon-middle__right"> 
         <h2>🍗</h2>
         <h2>🌮</h2>
         <h2>🌯</h2>
@@ -95,19 +76,12 @@
       <h2>🍝</h2>
     </div>
   </div>
-
-    <h3 id="result" >
-      <span> </span>
+    <h3 id="result">
+      <span></span>
     </h3>
-
-    <div
-      id="dataDisplay"
-      style="flex-wrap: wrap; display: flex; justify-content: space-between"
-    ></div>
-
+    <div id="dataDisplay"></div>
     <div id="resultDisplay"></div>
   </div>
-
   {% endblock %}
 </div>
 
