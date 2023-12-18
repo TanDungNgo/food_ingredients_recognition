@@ -256,6 +256,11 @@ p {
 
 }
 
+.recipe-container-container h2{
+  color: black;
+  margin-block-end: 10px;
+}
+
 .navbar {
   background-image: url("https://cdn.pixabay.com/photo/2022/04/30/19/12/cooking-banner-7166200_1280.jpg");
   background-size: cover;
