@@ -479,3 +479,18 @@ p {
   left:10%;
 }
 
+.stepper {
+  .line {
+    width: 2px;
+    background-color: lightgrey !important;
+  }
+  .lead {
+    font-size: 1.4rem;
+    text-align: left;
+  }
+  .d-flex:last-child .line {
+    display: none;
+  }
+}
+
+

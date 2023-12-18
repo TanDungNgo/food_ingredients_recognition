@@ -92,21 +92,28 @@ $(document).ready(function () {
                     </div>
                 
                     <div class="recipe-container-container post-it">
-                        <h2>Ingredients 📃:</h2>
+                        <h2>Ingredients 📃</h2>
                         <ul>
                             ${recipeInfo.extendedIngredients.map(ingredient => `<li>${ingredient.original}</li>`).join('')}
                         </ul>
                     </div>
-                
-                    <div class="recipe-container-container">
-                        <h2>Instructions 😎:</h2>
-                        <div class="summary-text" style="text-align: start;">
-                            ${recipeInfo.analyzedInstructions[0].steps.map(step => `<p>- Step ${step.number}: ${step.step}</p>`).join('')}
-                        </div>
+
+                    <div class="recipe-container-container stepper d-flex flex-column mt-5 ml-2">
+                        <h2 style="margin-bottom: 16px">Instructions 😎:</h2>
+                        ${recipeInfo.analyzedInstructions[0].steps.map((step, index) => `
+                            <div class="d-flex mb-1">
+                                <div class="d-flex flex-column pr-4 align-items-center">
+                                    <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">${index}</div>
+                                    <div class="line h-100"></div>
+                                </div>
+                                <div>
+                                    <p class="lead text-muted pb-3">${step.step}</p>
+                                </div>
+                            </div>`
+                        ).join('')}
                     </div>
                 </div>
             </div>
-    
         `;
     }
 
