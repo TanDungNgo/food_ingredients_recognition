@@ -249,11 +249,6 @@ p {
   align-items: flex-start;
   margin: 15px; 
   flex-direction: column;
-  h2{
-    color: black;
-    margin-block-end: 10px;
-  }
-
 }
 
 .recipe-container-container h2{

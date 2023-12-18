@@ -232,13 +232,11 @@ $(document).ready(function () {
                     </div>
 
                     <div class="recipe-container-container">
-                        <h2>Khẩu phần ăn🍴: </h2>
-                        ${recipeInfo.servings} người
+                        <h2>Khẩu phần ăn🍴: ${recipeInfo.servings} người </h2>
                     </div>
 
                     <div class="recipe-container-container">
-                        <h2>Thời gian nấu ⌛️: </h2>
-                        ${recipeInfo.readyInMinutes} phút
+                        <h2>Thời gian nấu ⌛️: ${recipeInfo.readyInMinutes} phút</h2>
                     </div>
 
                     <div class="recipe-container-container">
