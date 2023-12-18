@@ -147,48 +147,122 @@ $(document).ready(function () {
     //     return container;
     // }
 
+    // function convertDataToHTML(recipeInfo) {
+    //     return `
+    //         <div class="recipe-container-detailed">
+    //             <h1><b style="color: black,font-size: 30px;">Tên món ăn: ${recipeInfo.title}</b></h1>
+    //             <img src="${recipeInfo.image}" alt="${recipeInfo.title}">
+    //             <p>Nguồn: ${recipeInfo.creditsText}</p>
+    //             <div>
+    //                 <div class="summary-container">
+    //                     <p>Tóm tắt món ăn: ${recipeInfo.summary}</p>
+
+    //                 </div>
+                
+    //                 <div class="cuisines-container">
+    //                     <p>Ẩm thực:</p>
+    //                     ${recipeInfo.cuisines && recipeInfo.cuisines.length > 0 ?
+    //                         recipeInfo.cuisines.map(cuisine => `<p>- ${cuisine}</p>`).join('') :
+    //                         ''}
+    //                 </div>
+                
+    //                 <div class="dish-types-container">
+    //                     <p>Sử dụng làm:</p>
+    //                     ${recipeInfo.dishTypes.map(dishType => `<p>- ${dishType}</p>`).join('')}
+    //                 </div>
+                
+    //                 <div class="diets-container">
+    //                     <p>Chế độ ăn kiêng:</p>
+    //                     ${recipeInfo.diets.map(diet => `<p>- ${diet}</p>`).join('')}
+    //                 </div>
+                
+    //                 <p>Khẩu phần ăn: ${recipeInfo.servings} người</p>
+    //                 <p>Thời gian nấu: ${recipeInfo.readyInMinutes} phút</p>
+    //                 <p>Nguồn link hướng dẫn: ${recipeInfo.spoonacularSourceUrl}</p>
+                
+    //                 <div class="ingredients-container">
+    //                     <p>Nguyên liệu:</p>
+    //                     ${recipeInfo.extendedIngredients.map(ingredient => `<p>- ${ingredient.original}</p>`).join('')}
+    //                 </div>
+                
+    //                 <div class="instructions-container">
+    //                     <p>Cách làm:</p>
+    //                     ${recipeInfo.analyzedInstructions[0].steps.map(step => `<p>- Bước ${step.number}: ${step.step}</p>`).join('')}
+    //                 </div>
+    //             </div>
+    //         </div>
+    
+    //     `;
+    // }
+
     function convertDataToHTML(recipeInfo) {
         return `
             <div class="recipe-container-detailed">
-                <h1><b style="color: black,font-size: 30px;">Tên món ăn: ${recipeInfo.title}</b></h1>
-                <img src="${recipeInfo.image}" alt="${recipeInfo.title}">
-                <p>Nguồn: ${recipeInfo.creditsText}</p>
-                <p>Tóm tắt món ăn: ${recipeInfo.summary}</p>
-            
-                <div class="cuisines-container">
-                    <p>Ẩm thực:</p>
-                    ${recipeInfo.cuisines && recipeInfo.cuisines.length > 0 ?
-                        recipeInfo.cuisines.map(cuisine => `<p>- ${cuisine}</p>`).join('') :
-                        ''}
+                <div class="recipe-container-header">
+                    <h1><b style="color: black,font-size: 30px;">Tên món ăn: ${recipeInfo.title}</b></h1>
+                    <img src="${recipeInfo.image}" alt="${recipeInfo.title}">
+                    <p>Nguồn: ${recipeInfo.creditsText}</p>
+
                 </div>
-            
-                <div class="dish-types-container">
-                    <p>Sử dụng làm:</p>
-                    ${recipeInfo.dishTypes.map(dishType => `<p>- ${dishType}</p>`).join('')}
-                </div>
-            
-                <div class="diets-container">
-                    <p>Chế độ ăn kiêng:</p>
-                    ${recipeInfo.diets.map(diet => `<p>- ${diet}</p>`).join('')}
-                </div>
-            
-                <p>Khẩu phần ăn: ${recipeInfo.servings} người</p>
-                <p>Thời gian nấu: ${recipeInfo.readyInMinutes} phút</p>
-                <p>Nguồn link hướng dẫn: ${recipeInfo.spoonacularSourceUrl}</p>
-            
-                <div class="ingredients-container">
-                    <p>Nguyên liệu:</p>
-                    ${recipeInfo.extendedIngredients.map(ingredient => `<p>- ${ingredient.original}</p>`).join('')}
-                </div>
-            
-                <div class="instructions-container">
-                    <p>Cách làm:</p>
-                    ${recipeInfo.analyzedInstructions[0].steps.map(step => `<p>- Bước ${step.number}: ${step.step}</p>`).join('')}
+                
+                <div class="recipe-container-body">
+                    <div class="recipe-container-container">
+                        <h2>Tóm tắt món ăn 🧑‍🍳: </h2>
+
+                        <div style="text-align: start;">
+                            ${recipeInfo.summary}
+                        </div>
+                    </div>
+                   
+                    <div class="recipe-container-container">
+                        <h2>Ẩm thực 🌍:</h2>
+                        ${recipeInfo.cuisines && recipeInfo.cuisines.length > 0 ?
+                            recipeInfo.cuisines.map(cuisine => `<p>- ${cuisine}</p>`).join('') :
+                            ''}
+                    </div>
+                
+                    <div class="recipe-container-container">
+                        <h2>Sử dụng làm:</h2>
+                        ${recipeInfo.dishTypes.map(dishType => `<p>- ${dishType}</p>`).join('')}
+                    </div>
+                
+                    <div class="recipe-container-container">
+                        <h2>Chế độ ăn kiêng 🍽:</h2>
+                        ${recipeInfo.diets.map(diet => `<p>- ${diet}</p>`).join('')}
+                    </div>
+
+                    <div class="recipe-container-container">
+                        <h2>Khẩu phần ăn🍴: </h2>
+                        ${recipeInfo.servings} người
+                    </div>
+
+                    <div class="recipe-container-container">
+                        <h2>Thời gian nấu ⌛️: </h2>
+                        ${recipeInfo.readyInMinutes} phút
+                    </div>
+
+                    <div class="recipe-container-container">
+                        <h2>Nguồn link hướng dẫn 🔪: </h2>
+                        <a href="${recipeInfo.spoonacularSourceUrl}" target="_blank">${recipeInfo.spoonacularSourceUrl}</a>
+                    </div>
+                
+                
+                    <div class="recipe-container-container">
+                        <h2>Nguyên liệu 📃:</h2>
+                        ${recipeInfo.extendedIngredients.map(ingredient => `<p>- ${ingredient.original}</p>`).join('')}
+                    </div>
+                
+                    <div class="recipe-container-container">
+                        <h2>Cách làm 😎:</h2>
+                        ${recipeInfo.analyzedInstructions[0].steps.map(step => `<p>- Bước ${step.number}: ${step.step}</p>`).join('')}
+                    </div>
                 </div>
             </div>
     
         `;
     }
+
+
     // Predict
     $('#btn-predict').click(function () {
         var form_data = new FormData($('#upload-file')[0]);

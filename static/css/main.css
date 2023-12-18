@@ -236,6 +236,31 @@ p {
   height: 100%;
 }
 
+.recipe-container-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+}
+
+.recipe-container-container{
+  display: flex;
+  align-items: flex-start;
+  margin: 15px; 
+  flex-direction: column;
+  h2{
+    color: black;
+    margin-block-end: 10px;
+  }
+
+}
+
+.recipe-container-container h2{
+  color: black;
+  margin-block-end: 10px;
+}
+
 .navbar {
   background-image: url("https://cdn.pixabay.com/photo/2022/04/30/19/12/cooking-banner-7166200_1280.jpg");
   background-size: cover;
@@ -288,6 +313,9 @@ p {
 }
 #result{
   margin: 20px;
+}
+.container{
+  display: flex;
 }
  
 
