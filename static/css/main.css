@@ -247,6 +247,7 @@ p {
   background-size: 256px 256px;
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
 }
 
 .upload-label {

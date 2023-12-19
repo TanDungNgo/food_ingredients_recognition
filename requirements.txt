@@ -3,3 +3,5 @@ tensorflow==2.13.0
 flask
 Werkzeug
 Pillow
+imutils
+opencv-python
