@@ -5,7 +5,7 @@ from keras.preprocessing import image
 import cv2
 
 K.clear_session()
-path_to_model='./model_v1_inceptionV3_build.h5'
+path_to_model='./model/model_v1_inceptionV3.h5'
 print("Loading the model..")
 model = load_model(path_to_model)
 print("Done!")

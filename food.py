@@ -2,7 +2,7 @@ import requests
 from flask import Flask, render_template, request, jsonify
 
 #api-endpoint
-API_KEY = "e8024e5ec5b240f89f3d00a36c231c74"
+API_KEY = "505e4c4c3ea046ff904d2a2c111e4f85"
 
 def search(query, api_key = API_KEY):
     URL = "https://api.spoonacular.com/recipes/complexSearch"
