@@ -1,11 +1,11 @@
-from tensorflow.keras.models import load_model
-from tensorflow.keras import backend as K
+from keras.models import load_model
+from keras import backend as K
 import numpy as np
-from tensorflow.keras.preprocessing import image
+from keras.preprocessing import image
 import cv2
 
 K.clear_session()
-path_to_model='./model_v1_inceptionV3.h5'
+path_to_model='./model_v1_inceptionV3_build.h5'
 print("Loading the model..")
 model = load_model(path_to_model)
 print("Done!")
@@ -25,11 +25,13 @@ def predict_image(filename,model = model):
 
     prediction = model.predict(img_processed)
     
-    top_values_indices = np.argsort(prediction)[-3:][::-1]
-    print("Các giá trị lớn nhất là:")
-    print(category[top_values_indices[0][-1]])
-    print(category[top_values_indices[0][-2]])
-    print(category[top_values_indices[0][-3]])
+    top_values_indices = np.argsort(prediction[0])[-3:][::-1]
+    for idx in top_values_indices:
+        class_info = category[idx]
+        class_name, display_name = class_info
+        confidence = prediction[0][idx]
+        print(f"{display_name}: {confidence * 100:.2f}%")
+    
     index = np.argmax(prediction)
     return category[index][1]
 
