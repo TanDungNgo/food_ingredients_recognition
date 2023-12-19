@@ -28,7 +28,6 @@ $(document).ready(function () {
         const image = document.createElement('img');
         image.src = item.image;
         image.alt = item.title;
-
         const title = document.createElement('p');
         title.textContent = item.title;
 
@@ -39,7 +38,6 @@ $(document).ready(function () {
 
         return container;
     }
-
     function convertDataToHTML(recipeInfo) {
         return `
             <div class="recipe-container-detailed">

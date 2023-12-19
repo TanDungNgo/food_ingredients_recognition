@@ -2,6 +2,7 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras import backend as K
 import numpy as np
 from tensorflow.keras.preprocessing import image
+import cv2
 
 K.clear_session()
 path_to_model='./model_v1_inceptionV3.h5'
@@ -10,9 +11,10 @@ model = load_model(path_to_model)
 print("Done!")
 
 category={
-    0: ['apple','Apple'], 1: ['banana','Banana'], 2: ['bread','Bread'], 3: ['carrot', 'Carrot'],
-    4: ['chicken','Chicken'], 5: ['crab','Crab'], 6: ['egg','Egg'], 7: ['milk','Milk'], 8: ['potato','Potato'], 9: ['shrimp', 'Shrimp'],
-    10: ['tofu', 'Tofu'], 11: ['tomato', 'Tomato'],
+    0: ['apple','Apple'], 1: ['banana','Banana'], 2: ['bread','Bread'], 3: ['carrot', 'Carrot'], 4: ['cheese', 'Cheese'],
+    5: ['chicken','Chicken'], 6:['corn','Corn'], 7: ['crab','Crab'], 8: ['egg','Egg'], 9:['fish', 'Fish'], 10: ['garlic', 'Garlic'], 
+    11: ['lettuce', 'Lettuce'], 12: ['meat', 'Meat'], 13: ['milk','Milk'], 14:['noodle', 'Noodle'], 15: ['potato','Potato'], 
+    16: ['rice', 'Rice'], 17: ['shrimp', 'Shrimp'], 18: ['tofu', 'Tofu'], 19: ['tomato', 'Tomato']
 }
 
 def predict_image(filename,model = model):
@@ -24,8 +26,22 @@ def predict_image(filename,model = model):
     prediction = model.predict(img_processed)
 
     index = np.argmax(prediction)
-
     return category[index][1]
 
-if __name__ == '__main__':
-    print(predict_image('./1_jpg.rf.02f339d58c19a0efa70e1aacc0ae7531_-_Copy.jpg'))
+def predict_frame(frame, model=model, threshold=0.9):
+    # Resize and convert to float32
+    img_resized = cv2.resize(frame, (299, 299)).astype(np.float32)
+    img_array = np.expand_dims(img_resized, axis=0)
+    
+    # Convert to uint8 and divide by 255
+    img_array = (img_array.astype(np.uint8)) / 255.
+
+    prediction = model.predict(img_array)
+
+    max_prob = np.max(prediction)    
+    if max_prob > threshold:
+        print(max_prob)
+        index = np.argmax(prediction)
+        return category[index][1]
+    else:
+        return None
