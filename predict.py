@@ -24,7 +24,12 @@ def predict_image(filename,model = model):
     img_processed /= 255.
 
     prediction = model.predict(img_processed)
-
+    
+    top_values_indices = np.argsort(prediction)[-3:][::-1]
+    print("Các giá trị lớn nhất là:")
+    print(category[top_values_indices[0][-1]])
+    print(category[top_values_indices[0][-2]])
+    print(category[top_values_indices[0][-3]])
     index = np.argmax(prediction)
     return category[index][1]
 
