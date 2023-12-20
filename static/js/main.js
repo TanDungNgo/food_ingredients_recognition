@@ -2,7 +2,9 @@ $(document).ready(function () {
     $('.image-section').hide();
     $('.loader').hide();
     $('#result').hide();
-
+    $('#dataDisplay').hide();
+    $('#resultDisplay').hide();
+    $('#cookButton').hide();
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -137,7 +139,6 @@ $(document).ready(function () {
                 $('#result').fadeIn(600);
                 $('#result').text(' Result:  ' + data.result);
                 $('#dataDisplay').show();
-
                 var dataDisplay = document.getElementById('dataDisplay');
                 dataDisplay.innerHTML = '';
 
@@ -195,6 +196,32 @@ $(document).ready(function () {
                 }
                 console.log('Success!');
                 console.log("Data:", data.data)
+
+
+                const resultListDisplay = $('#resultListDisplay');
+                resultListDisplay.empty();
+    
+                data.results_list.forEach(result => {
+                    const listItem = $('<div class="result-item"></div>').text(`${result}`);
+                    resultListDisplay.append(listItem);
+                });
+                resultListDisplay.show();
+                $('#cookButton').show();
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', error);
+            },
+        });
+    });
+    $('#cookButton').click(function () {
+        // Add your logic to call the "cook" API
+        console.log('Cooking...');
+        $.ajax({
+            type: 'POST',
+            url: '/cook',
+            success: function (data) {
+                console.log('Success!');
+                console.log("Data:", data)
             },
             error: function (xhr, status, error) {
                 console.error('Error:', error);

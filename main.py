@@ -6,7 +6,7 @@ import food
 
 
 app = Flask(__name__)
-
+results_list = []
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -31,13 +31,22 @@ def upload():
         data = food.search(result)
 
         os.remove(file_path)
+        if result not in results_list:
+            results_list.append(result)
 
 
         return jsonify({'result': result,
-                        'data' : data}), 200
+                        'data' : data, 'results_list': results_list}), 200
 
     # Trả về phản hồi nếu không phải là phương thức POST
     return jsonify({'error': 'Method not allowed'}), 405
+
+@app.route('/cook', methods=['POST'])
+def display_results():
+    print(results_list)
+    if request.method == 'POST':
+        data = food.cook(results_list)
+        return jsonify({'data' : data}), 200
 
 @app.route('/process_food/<string:id_>', methods=['GET'])
 def process_food(id_):
