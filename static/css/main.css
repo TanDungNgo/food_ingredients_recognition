@@ -288,6 +288,7 @@ p {
   display: flex;
   flex-flow: row wrap;
   gap: 1.2em;
+  margin-top: 24px;
   justify-content: space-between;
   align-items: center;
 }
@@ -493,5 +494,4 @@ p {
     display: none;
   }
 }
-
 

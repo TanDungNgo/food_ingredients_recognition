@@ -197,7 +197,6 @@ $(document).ready(function () {
                 console.log('Success!');
                 console.log("Data:", data.data)
 
-
                 const resultListDisplay = $('#resultListDisplay');
                 resultListDisplay.empty();
     
@@ -220,6 +219,68 @@ $(document).ready(function () {
             type: 'POST',
             url: '/cook',
             success: function (data) {
+                var dataDisplay = document.getElementById('dataDisplay');
+                dataDisplay.innerHTML = '';
+
+                var resultDisplay = document.getElementById('resultDisplay');
+                if (resultDisplay) {
+
+                    var newElement = document.createElement('div');
+                    resultDisplay.appendChild(newElement);
+                    resultDisplay.innerHTML = ''; 
+                    // Các thao tác khác trên resultDisplay
+                } else {
+                    console.error('Không tìm thấy phần tử resultDisplay.');
+                }
+
+                for (const key in data.data.results) {
+                    if (data.data.results.hasOwnProperty(key)) {
+                        const item = data.data.results[key];
+
+                        const container = createRecipe(item);
+                        dataDisplay.appendChild(container);
+
+                        container.addEventListener('click', function () {
+                            console.log('Click:', item.id)
+                            // $('#dataDisplay').hide();
+                            $.ajax({
+                                type: 'GET',
+                                url: '/process_food/' + item.id, 
+                                success: function (data) {
+                                    console.log('data:', data.data)
+                                    const recipeInfo = data.data
+                                    $('#resultDisplay').empty();
+
+                                    if (data.data.results.length == 0) {
+                                        var html = convertDataToHTML(`
+                                            <p>No food founded</p>
+                                        `);
+
+                                        // Chèn HTML vào #resultDisplay
+                                        $('#resultDisplay').html(html);
+                                
+                                        // Hiển thị #resultDisplay nếu đã ẩn
+                                        $('#resultDisplay').show();
+                                    } else {
+                                        // Gọi hàm convertDataToHTML để chuyển đổi dữ liệu thành HTML
+                                        var html = convertDataToHTML(recipeInfo);
+                                
+                                        // Chèn HTML vào #resultDisplay
+                                        $('#resultDisplay').html(html);
+                                
+                                        // Hiển thị #resultDisplay nếu đã ẩn
+                                        $('#resultDisplay').show();
+                                    }
+                                },
+                                error: function (xhr, status, error) {
+                                console.error('Error:', error);
+                            },
+                                });
+
+                        });
+                    }
+                }
+
                 console.log('Success!');
                 console.log("Data:", data)
             },

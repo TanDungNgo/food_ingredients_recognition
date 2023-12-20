@@ -14,12 +14,14 @@ def search(query, api_key = API_KEY):
     data = r.json()
     return data
 
+
 def cook(list, api_key = API_KEY):
+    query_string = ','.join(list)
     print(list)
     URL = "https://api.spoonacular.com/recipes/complexSearch"
     PARAMS = {
         'apiKey' : api_key,
-        'query' : list
+        'query' : query_string
     }
     r = requests.get(url = URL, params = PARAMS)
     data = r.json()
