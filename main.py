@@ -48,6 +48,12 @@ def display_results():
         data = food.cook(results_list)
         return jsonify({'data' : data}), 200
 
+@app.route('/reset', methods=['POST'])
+def clear_results():
+    if request.method == 'POST':
+        results_list.clear()
+        return jsonify({'results_list': results_list}), 200
+
 @app.route('/process_food/<string:id_>', methods=['GET'])
 def process_food(id_):
     if request.method == 'GET':
